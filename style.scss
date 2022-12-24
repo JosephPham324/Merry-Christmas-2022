@@ -117,7 +117,7 @@ main {
   background: transparent;
   z-index: -20;
 }
-@mixin move-off-screen-left($time:30s){
+@mixin move-off-screen-left($time:30s, $back-and-forth: false){
   // Set the animation properties
   animation: move-off-screen-left $time linear infinite;
   // Define the animation keyframes
@@ -126,24 +126,44 @@ main {
       // At the start of the animation, the element is in its original position
       transform: translateX(100%);
     }
+    @if $back-and-forth {
+      50% {
+        // At the halfway point, move the element to the left or right of the screen
+        transform: translateX(-100vw);
+      }
+    }
     100% {
       // At the halfway point, move the element to the left or right of the screen
-      transform: translateX(-100vw);
+      @if $back-and-forth {
+        transform: translateX(100%);
+      } @else {
+        transform: translateX(-100vw);
+      }
     }
   }
 }
-@mixin move-off-screen-right($time:30s) {
+@mixin move-off-screen-right($time:30s,$back-and-forth: false) {
   // Set the animation properties
   animation: move-off-screen-right $time linear infinite;
   // Define the animation keyframes
   @keyframes move-off-screen-right {
     0% {
       // At the start of the animation, the element is in its original position
-      transform: translateX(-100%);
+      transform: translateX(0%);
+    }
+    @if $back-and-forth {
+      50% {
+        // At the halfway point, move the element to the left or right of the screen
+        transform: translateX(calc(100vw));
+      }
     }
     100% {
       // At the halfway point, move the element to the left or right of the screen
-      transform: translateX(calc(100vw));
+      @if $back-and-forth {
+        transform: translateX(0%);
+      } @else {
+        transform: translateX(calc(100vw));
+      }
     }
   }
 }
@@ -167,13 +187,13 @@ main {
   .layer:nth-child(odd) {
     justify-content: flex-end;
     .fa-cloud {
-      @include move-off-screen-left;
+      @include move-off-screen-left(20s,true);
     }
   }
   .layer:nth-child(even) {
     justify-content: flex-start;
     .fa-cloud {
-      @include move-off-screen-right;
+      @include move-off-screen-right(20s,true);
     }
   }
 }

@@ -191,46 +191,58 @@ main {
   justify-content: flex-end;
 }
 .clouds .layer:nth-child(odd) .fa-cloud {
-  -webkit-animation: move-off-screen-left 30s linear infinite;
-          animation: move-off-screen-left 30s linear infinite;
+  -webkit-animation: move-off-screen-left 20s linear infinite;
+          animation: move-off-screen-left 20s linear infinite;
 }
 @-webkit-keyframes move-off-screen-left {
   0% {
     transform: translateX(100%);
   }
-  100% {
+  50% {
     transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 @keyframes move-off-screen-left {
   0% {
     transform: translateX(100%);
   }
-  100% {
+  50% {
     transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 .clouds .layer:nth-child(even) {
   justify-content: flex-start;
 }
 .clouds .layer:nth-child(even) .fa-cloud {
-  -webkit-animation: move-off-screen-right 30s linear infinite;
-          animation: move-off-screen-right 30s linear infinite;
+  -webkit-animation: move-off-screen-right 20s linear infinite;
+          animation: move-off-screen-right 20s linear infinite;
 }
 @-webkit-keyframes move-off-screen-right {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100vw);
   }
   100% {
-    transform: translateX(100vw);
+    transform: translateX(0%);
   }
 }
 @keyframes move-off-screen-right {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100vw);
   }
   100% {
-    transform: translateX(100vw);
+    transform: translateX(0%);
   }
 }
 
@@ -300,7 +312,7 @@ main {
 }
 @keyframes move-off-screen-right {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(100vw);
