@@ -78,18 +78,108 @@ setInterval(() => {
 
 layers = document.querySelectorAll(".layer");
 
-for (const i in layers) {
-  layers[i].style.top = i * 2 + "rem";
-  //Generate a random number named 'displacement' between 2 and 30
-  let displacement = Math.floor(Math.random() * 28) + 2;
-  //Generate a random boolean value
-  let randomBoolean = Math.random() >= 0.5;
-  //If random boolean is true, add displacement to the left, else subtract displacement from the left
-  if (randomBoolean) {
-    layers[i].style.left = displacement + "rem";
-  } else {
-    layers[i].style.left = -displacement + "rem";
-  }
-
-  console.log(i);
+// for (const i in layers) {
+//   console.log(i)
+//   //Check if i is a number
+//   if (typeof i === "number") {
+//     console.log(i);
+//     layers[i].style.top = i * 2 + "rem";
+//     //Generate a random number named 'displacement' between 2 and 30
+//     let displacement = Math.floor(Math.random() * 28) + 2;
+//     //Generate a random boolean value
+//     let randomBoolean = Math.random() >= 0.5;
+//     //If random boolean is true, add displacement to the left, else subtract displacement from the left
+//     if (randomBoolean) {
+//       layers[i].style.left = displacement + "rem";
+//     } else {
+//       layers[i].style.left = -displacement + "rem";
+//     }
+//   }
+// }
+layers.forEach((layer) => {
+    console.log(layer)
+    //Generate a random number named 'horizontalDisplacement' between 2 and 15
+    let horizontalDisplacement = Math.floor(Math.random() * 8) + 0;
+    layer.style.top = horizontalDisplacement + "rem";
+    //Generate a random number named 'displacement' between 2 and 30
+    let displacement = Math.floor(Math.random() * 28) + 2;
+    //Generate a random boolean value
+    let randomBoolean = Math.random() >= 0.5;
+    //If random boolean is true, add displacement to the left, else subtract displacement from the left
+    if (randomBoolean) {
+        layer.style.left = displacement + "rem";
+    } else {
+        layer.style.left = -displacement + "rem";
+    }
+});
+//Generate 20 elements with class snow and append to element with class snow-particle
+for (let i = 0; i < 15; i++) {
+  //Log i
+  let snow = document.createElement("i");
+  snow.classList.add("snow");
+  //Assign random left position to snow
+  let horizontalDisplacement = Math.floor(Math.random() * 100);
+  snow.style.left = horizontalDisplacement + "%";
+  //Assign random animation to snow between 'snow-right' and 'snow-left'
+  let randomAnimation = Math.random() >= 0.5 ? "snow-right" : "snow-left";
+  //Assign random animation duration between 5 and 10 seconds to snow
+  let randomAnimationDuration = Math.floor(Math.random() * 8) + 12;
+  snow.style.animation = `${randomAnimation} ${randomAnimationDuration}s linear infinite`;
+  let snowParticle = document.querySelector(".snow-particle");
+  snowParticle.appendChild(snow);
 }
+
+//Delay execution for 5 seconds
+setTimeout(() => {
+  for (let i = 0; i < 15; i++) {
+    //Log i
+    let snow = document.createElement("i");
+    snow.classList.add("snow");
+    //Assign random left position to snow
+    let horizontalDisplacement = Math.floor(Math.random() * 100);
+    snow.style.left = horizontalDisplacement + "%";
+    //Assign random animation to snow between 'snow-right' and 'snow-left'
+    let randomAnimation = Math.random() >= 0.5 ? "snow-right" : "snow-left";
+    //Assign random animation duration between 5 and 10 seconds to snow
+    let randomAnimationDuration = Math.floor(Math.random() * 8) + 12;
+    snow.style.animation = `${randomAnimation} ${randomAnimationDuration}s linear infinite`;
+    let snowParticle = document.querySelector(".snow-particle");
+    snowParticle.appendChild(snow);
+  }
+}, 5000);
+
+setTimeout(() => {
+  for (let i = 0; i < 15; i++) {
+    //Log i
+    let snow = document.createElement("i");
+    snow.classList.add("snow");
+    //Assign random left position to snow
+    let horizontalDisplacement = Math.floor(Math.random() * 100);
+    snow.style.left = horizontalDisplacement + "%";
+    //Assign random animation to snow between 'snow-right' and 'snow-left'
+    let randomAnimation = Math.random() >= 0.5 ? "snow-right" : "snow-left";
+    //Assign random animation duration between 5 and 10 seconds to snow
+    let randomAnimationDuration = Math.floor(Math.random() * 8) + 12;
+    snow.style.animation = `${randomAnimation} ${randomAnimationDuration}s linear infinite`;
+    let snowParticle = document.querySelector(".snow-particle");
+    snowParticle.appendChild(snow);
+  }
+}, 10000);
+
+setTimeout(() => {
+  for (let i = 0; i < 15; i++) {
+    //Log i
+    let snow = document.createElement("i");
+    snow.classList.add("snow");
+    //Assign random left position to snow
+    let horizontalDisplacement = Math.floor(Math.random() * 100);
+    snow.style.left = horizontalDisplacement + "%";
+    //Assign random animation to snow between 'snow-right' and 'snow-left'
+    let randomAnimation = Math.random() >= 0.5 ? "snow-right" : "snow-left";
+    //Assign random animation duration between 5 and 10 seconds to snow
+    let randomAnimationDuration = Math.floor(Math.random() * 8) + 12;
+    snow.style.animation = `${randomAnimation} ${randomAnimationDuration}s linear infinite`;
+    let snowParticle = document.querySelector(".snow-particle");
+    snowParticle.appendChild(snow);
+  }
+}, 15000);
