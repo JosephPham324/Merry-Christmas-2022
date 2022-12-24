@@ -78,39 +78,21 @@ setInterval(() => {
 
 layers = document.querySelectorAll(".layer");
 
-// for (const i in layers) {
-//   console.log(i)
-//   //Check if i is a number
-//   if (typeof i === "number") {
-//     console.log(i);
-//     layers[i].style.top = i * 2 + "rem";
-//     //Generate a random number named 'displacement' between 2 and 30
-//     let displacement = Math.floor(Math.random() * 28) + 2;
-//     //Generate a random boolean value
-//     let randomBoolean = Math.random() >= 0.5;
-//     //If random boolean is true, add displacement to the left, else subtract displacement from the left
-//     if (randomBoolean) {
-//       layers[i].style.left = displacement + "rem";
-//     } else {
-//       layers[i].style.left = -displacement + "rem";
-//     }
-//   }
-// }
 layers.forEach((layer) => {
-    console.log(layer)
-    //Generate a random number named 'horizontalDisplacement' between 2 and 15
-    let horizontalDisplacement = Math.floor(Math.random() * 8) + 0;
-    layer.style.top = horizontalDisplacement + "rem";
-    //Generate a random number named 'displacement' between 2 and 30
-    let displacement = Math.floor(Math.random() * 28) + 2;
-    //Generate a random boolean value
-    let randomBoolean = Math.random() >= 0.5;
-    //If random boolean is true, add displacement to the left, else subtract displacement from the left
-    if (randomBoolean) {
-        layer.style.left = displacement + "rem";
-    } else {
-        layer.style.left = -displacement + "rem";
-    }
+  console.log(layer);
+  //Generate a random number named 'horizontalDisplacement' between 2 and 15
+  let horizontalDisplacement = Math.floor(Math.random() * 8) + 0;
+  layer.style.top = horizontalDisplacement + "rem";
+  //Generate a random number named 'displacement' between 2 and 30
+  let displacement = Math.floor(Math.random() * 28) + 2;
+  //Generate a random boolean value
+  let randomBoolean = Math.random() >= 0.5;
+  //If random boolean is true, add displacement to the left, else subtract displacement from the left
+  if (randomBoolean) {
+    layer.style.left = displacement + "rem";
+  } else {
+    layer.style.left = -displacement + "rem";
+  }
 });
 //Generate 20 elements with class snow and append to element with class snow-particle
 for (let i = 0; i < 15; i++) {
@@ -183,3 +165,24 @@ setTimeout(() => {
     snowParticle.appendChild(snow);
   }
 }, 15000);
+
+function animateSanta() {
+  let santa = document.querySelector("#santa");
+  for (const i of Array(11).keys()) {
+    setTimeout(() => {
+      santa.src = `santasprites/png/Slide (${i + 1}).png`;
+    }, i * 100);
+  }
+}
+
+function maintainSanta() {
+  let santa = document.querySelector("#santa");
+  setInterval(() => {
+    animateSanta();
+  }, 1100);
+}
+animateSanta();
+//Stop execution for 1100ms
+setTimeout(() => {
+maintainSanta();
+}, 1100);

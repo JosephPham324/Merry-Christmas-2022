@@ -115,41 +115,33 @@ main {
   background: transparent;
   z-index: -20;
 }
-@mixin move-off-screen-left {
+@mixin move-off-screen-left($time:30s){
   // Set the animation properties
-  animation: move-off-screen-left 30s linear infinite;
+  animation: move-off-screen-left $time linear infinite;
   // Define the animation keyframes
   @keyframes move-off-screen-left {
     0% {
       // At the start of the animation, the element is in its original position
-      transform: translateX(0);
+      transform: translateX(100%);
     }
-    50% {
+    100% {
       // At the halfway point, move the element to the left or right of the screen
       transform: translateX(-100vw);
     }
-    100% {
-      // At the end of the animation, move the element back to its original position
-      transform: translateX(0);
-    }
   }
 }
-@mixin move-off-screen-right {
+@mixin move-off-screen-right($time:30s) {
   // Set the animation properties
-  animation: move-off-screen-right 30s linear infinite;
+  animation: move-off-screen-right $time linear infinite;
   // Define the animation keyframes
   @keyframes move-off-screen-right {
     0% {
       // At the start of the animation, the element is in its original position
-      transform: translateX(0);
-    }
-    50% {
-      // At the halfway point, move the element to the left or right of the screen
-      transform: translateX(calc(100vw - 100%));
+      transform: translateX(-100%);
     }
     100% {
-      // At the end of the animation, move the element back to its original position
-      transform: translateX(0);
+      // At the halfway point, move the element to the left or right of the screen
+      transform: translateX(calc(100vw));
     }
   }
 }
@@ -216,4 +208,18 @@ main {
   100% {
     transform: translateX(-30vw) translateY(100vh);
   }
+}
+
+.santa-animation{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  img{
+    position: absolute;
+  }
+}
+
+#santa{
+  @include move-off-screen-right(6s);
 }

@@ -175,24 +175,18 @@ main {
 }
 @-webkit-keyframes move-off-screen-left {
   0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-100vw);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(-100vw);
   }
 }
 @keyframes move-off-screen-left {
   0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-100vw);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(-100vw);
   }
 }
 .clouds .layer:nth-child(even) {
@@ -204,24 +198,18 @@ main {
 }
 @-webkit-keyframes move-off-screen-right {
   0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(calc(100vw - 100%));
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(100vw);
   }
 }
 @keyframes move-off-screen-right {
   0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(calc(100vw - 100%));
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(100vw);
   }
 }
 
@@ -273,5 +261,27 @@ main {
   }
   100% {
     transform: translateX(-30vw) translateY(100vh);
+  }
+}
+.santa-animation {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+}
+.santa-animation img {
+  position: absolute;
+}
+
+#santa {
+  -webkit-animation: move-off-screen-right 6s linear infinite;
+          animation: move-off-screen-right 6s linear infinite;
+}
+@keyframes move-off-screen-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
   }
 }/*# sourceMappingURL=style.css.map */
