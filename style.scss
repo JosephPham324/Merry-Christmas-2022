@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
 @mixin responsive-font-size(
   $min-size,
   $max-size,
@@ -54,7 +56,7 @@ main {
 
 .fa-snowman {
   color: white;
-  font-size: 10rem;
+  @include responsive-font-size(5rem, 10rem, 320px, 1200px);
   position: relative;
   &::after {
     z-index: -1;
@@ -222,4 +224,32 @@ main {
 
 #santa{
   @include move-off-screen-right(6s);
+}
+
+///Center an element horizontally and vertically (according to parent element)
+@mixin center-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wishings{
+  font-family: 'Mountains of Christmas', cursive;
+  background-color: rgba(red,0.7);
+  color: white;
+  width: 100%;;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include center-block();
+  h1{
+    font-size: 3rem;
+  }
+  h2{
+    font-family: 'Unbounded';
+  }
+  h4{
+    border-bottom:1px ridge white;
+  }
 }

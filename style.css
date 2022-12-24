@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unbounded&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -50,11 +52,30 @@ main {
 
 .fa-snowman {
   color: white;
-  font-size: 10rem;
+  font-size: 5rem;
   position: relative;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   -webkit-animation: swinging 5s linear infinite;
           animation: swinging 5s linear infinite;
+}
+@media (min-width: 320px) {
+  .fa-snowman {
+    font-size: calc(
+      5rem + (10rem - 5rem) * ((
+              100vw - 320px
+            ) / (1200px - 320px))
+    );
+    font-size: calc(
+      5rem + (10rem - 5rem) * ((
+              100vw - 320px
+            ) / (1200px - 320px))
+    );
+  }
+}
+@media (min-width: 1200px) {
+  .fa-snowman {
+    font-size: 10rem;
+  }
 }
 .fa-snowman::after {
   z-index: -1;
@@ -284,4 +305,28 @@ main {
   100% {
     transform: translateX(100vw);
   }
+}
+
+.wishings {
+  font-family: "Mountains of Christmas", cursive;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wishings h1 {
+  font-size: 3rem;
+}
+.wishings h2 {
+  font-family: "Unbounded";
+}
+.wishings h4 {
+  border-bottom: 1px ridge white;
 }/*# sourceMappingURL=style.css.map */
