@@ -354,4 +354,35 @@ main {
 }
 .tree img {
   position: absolute;
+}
+
+.welcome {
+  position: fixed;
+  z-index: 100;
+  background-color: rgb(62, 138, 74);
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.welcome h2 {
+  font-size: 1.5rem;
+  font-family: "Unbounded";
+}
+.welcome button {
+  background-color: rgb(62, 138, 74);
+  border: 1px solid white;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  font-family: "Unbounded";
+  cursor: pointer;
+}
+.welcome button:hover {
+  background-color: rgba(62, 138, 74, 0.7);
 }/*# sourceMappingURL=style.css.map */

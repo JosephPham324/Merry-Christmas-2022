@@ -190,4 +190,10 @@ maintainSanta();
 //Create an audio with source yeahboi.mp3
 let audio = document.createElement("audio");
 audio.src = "yeahboi.mp3";
-audio.autoplay = true;
+
+function hitIt(){
+    console.log(document.querySelector('.welcome'))
+    document.querySelector('.welcome').style.display = 'none';
+    console.log('hit it')
+    audio.play();
+}
