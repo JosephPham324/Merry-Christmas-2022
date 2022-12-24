@@ -191,8 +191,8 @@ main {
   justify-content: flex-end;
 }
 .clouds .layer:nth-child(odd) .fa-cloud {
-  -webkit-animation: move-off-screen-left 20s linear infinite;
-          animation: move-off-screen-left 20s linear infinite;
+  -webkit-animation: move-off-screen-left 40s linear infinite;
+          animation: move-off-screen-left 40s linear infinite;
 }
 @-webkit-keyframes move-off-screen-left {
   0% {
@@ -220,8 +220,8 @@ main {
   justify-content: flex-start;
 }
 .clouds .layer:nth-child(even) .fa-cloud {
-  -webkit-animation: move-off-screen-right 20s linear infinite;
-          animation: move-off-screen-right 20s linear infinite;
+  -webkit-animation: move-off-screen-right 40s linear infinite;
+          animation: move-off-screen-right 40s linear infinite;
 }
 @-webkit-keyframes move-off-screen-right {
   0% {

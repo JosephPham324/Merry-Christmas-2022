@@ -187,13 +187,13 @@ main {
   .layer:nth-child(odd) {
     justify-content: flex-end;
     .fa-cloud {
-      @include move-off-screen-left(20s,true);
+      @include move-off-screen-left(40s,true);
     }
   }
   .layer:nth-child(even) {
     justify-content: flex-start;
     .fa-cloud {
-      @include move-off-screen-right(20s,true);
+      @include move-off-screen-right(40s,true);
     }
   }
 }
