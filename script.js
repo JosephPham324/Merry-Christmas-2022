@@ -186,3 +186,8 @@ animateSanta();
 setTimeout(() => {
 maintainSanta();
 }, 1100);
+
+//Create an audio with source yeahboi.mp3
+let audio = document.createElement("audio");
+audio.src = "yeahboi.mp3";
+audio.autoplay = true;
