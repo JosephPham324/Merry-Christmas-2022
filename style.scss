@@ -1,0 +1,90 @@
+@mixin responsive-font-size(
+  $min-size,
+  $max-size,
+  $min-viewport-width,
+  $max-viewport-width
+) {
+  font-size: $min-size;
+  @media (min-width: $min-viewport-width) {
+    font-size: calc(
+      #{$min-size} + (#{$max-size} - #{$min-size}) * ((
+              100vw - #{$min-viewport-width}
+            ) / (#{$max-viewport-width} - #{$min-viewport-width}))
+    );
+    font-size: calc(
+      #{$min-size} + (#{$max-size} - #{$min-size}) * ((
+              100vw - #{$min-viewport-width}
+            ) / (#{$max-viewport-width} - #{$min-viewport-width}))
+    );
+  }
+  @media (min-width: $max-viewport-width) {
+    font-size: $max-size;
+  }
+}
+@mixin outline-text($outline-color: #000) {
+  text-shadow: -1px -1px 0 $outline-color, 1px -1px 0 $outline-color,
+    -1px 1px 0 $outline-color, 1px 1px 0 $outline-color;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+}
+main {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: -5;
+}
+.fa-snowflake {
+  @include responsive-font-size(10px, 20px, 320px, 1200px);
+  position: absolute;
+  animation: infinite-spinning 3s linear infinite;
+  color: #abf0ff;
+}
+
+.fa-snowman {
+  color: white;
+  font-size: 10rem;
+  position: relative;
+  &::after{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(5%);
+    width: 25%;
+    height: 100%;
+    background-color: red;
+    background: linear-gradient(to bottom, black, black 15%, orange 15%, orange 30%, red 30%,red 100%);
+  }
+  @include outline-text(black);
+}
+
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
