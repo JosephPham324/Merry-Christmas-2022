@@ -19,7 +19,6 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  z-index: -5;
 }
 
 .fa-snowflake {
@@ -54,6 +53,8 @@ main {
   font-size: 10rem;
   position: relative;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  -webkit-animation: swinging 5s linear infinite;
+          animation: swinging 5s linear infinite;
 }
 .fa-snowman::after {
   z-index: -1;
@@ -62,7 +63,7 @@ main {
   left: 50%;
   transform: translateX(-50%) translateY(5%);
   width: 25%;
-  height: 100%;
+  height: 90%;
   background-color: red;
   background: linear-gradient(to bottom, black, black 15%, orange 15%, orange 30%, red 30%, red 100%);
 }
@@ -84,11 +85,142 @@ main {
     transform: rotate(360deg);
   }
 }
+@-webkit-keyframes swinging {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes swinging {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 #background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: transparent;
+  z-index: -20;
+}
+
+.clouds {
+  position: relative;
+  font-size: 4rem;
   z-index: -10;
+}
+@media (min-width: 320px) {
+  .clouds {
+    font-size: calc(
+      4rem + (6rem - 4rem) * ((
+              100vw - 320px
+            ) / (1200px - 320px))
+    );
+    font-size: calc(
+      4rem + (6rem - 4rem) * ((
+              100vw - 320px
+            ) / (1200px - 320px))
+    );
+  }
+}
+@media (min-width: 1200px) {
+  .clouds {
+    font-size: 6rem;
+  }
+}
+.clouds .layer {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+.clouds .layer .fa-cloud {
+  font-family: "Font Awesome 5 Free";
+  color: transparent;
+  background: linear-gradient(to top, grey, rgb(210, 205, 205), white);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.clouds .layer:nth-child(odd) {
+  justify-content: flex-end;
+}
+.clouds .layer:nth-child(odd) .fa-cloud {
+  -webkit-animation: move-off-screen-left 30s linear infinite;
+          animation: move-off-screen-left 30s linear infinite;
+}
+@-webkit-keyframes move-off-screen-left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes move-off-screen-left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.clouds .layer:nth-child(even) {
+  justify-content: flex-start;
+}
+.clouds .layer:nth-child(even) .fa-cloud {
+  -webkit-animation: move-off-screen-right 30s linear infinite;
+          animation: move-off-screen-right 30s linear infinite;
+}
+@-webkit-keyframes move-off-screen-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100vw - 100%));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes move-off-screen-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100vw - 100%));
+  }
+  100% {
+    transform: translateX(0);
+  }
 }/*# sourceMappingURL=style.css.map */

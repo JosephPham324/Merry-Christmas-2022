@@ -44,7 +44,6 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  z-index: -5;
 }
 .fa-snowflake {
   @include responsive-font-size(10px, 20px, 320px, 1200px);
@@ -57,18 +56,27 @@ main {
   color: white;
   font-size: 10rem;
   position: relative;
-  &::after{
+  &::after {
     z-index: -1;
     content: "";
     position: absolute;
     left: 50%;
     transform: translateX(-50%) translateY(5%);
     width: 25%;
-    height: 100%;
+    height: 90%;
     background-color: red;
-    background: linear-gradient(to bottom, black, black 15%, orange 15%, orange 30%, red 30%,red 100%);
+    background: linear-gradient(
+      to bottom,
+      black,
+      black 15%,
+      orange 15%,
+      orange 30%,
+      red 30%,
+      red 100%
+    );
   }
   @include outline-text(black);
+  animation: swinging 5s linear infinite;
 }
 
 @keyframes infinite-spinning {
@@ -80,11 +88,98 @@ main {
   }
 }
 
+@keyframes swinging {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 #background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: transparent;
+  z-index: -20;
+}
+@mixin move-off-screen-left {
+  // Set the animation properties
+  animation: move-off-screen-left 30s linear infinite;
+  // Define the animation keyframes
+  @keyframes move-off-screen-left {
+    0% {
+      // At the start of the animation, the element is in its original position
+      transform: translateX(0);
+    }
+    50% {
+      // At the halfway point, move the element to the left or right of the screen
+      transform: translateX(-100vw);
+    }
+    100% {
+      // At the end of the animation, move the element back to its original position
+      transform: translateX(0);
+    }
+  }
+}
+@mixin move-off-screen-right {
+  // Set the animation properties
+  animation: move-off-screen-right 30s linear infinite;
+  // Define the animation keyframes
+  @keyframes move-off-screen-right {
+    0% {
+      // At the start of the animation, the element is in its original position
+      transform: translateX(0);
+    }
+    50% {
+      // At the halfway point, move the element to the left or right of the screen
+      transform: translateX(calc(100vw - 100%));
+    }
+    100% {
+      // At the end of the animation, move the element back to its original position
+      transform: translateX(0);
+    }
+  }
+}
+.clouds {
+  position: relative;
+  @include responsive-font-size(4rem, 6rem, 320px, 1200px);
   z-index: -10;
+  .layer {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    .fa-cloud {
+      font-family: "Font Awesome 5 Free";
+      color: transparent;
+      background: linear-gradient(to top,grey,rgb(210, 205, 205),white );
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+  .layer:nth-child(odd) {
+    justify-content: flex-end;
+    .fa-cloud {
+      @include move-off-screen-left;
+    }
+  }
+  .layer:nth-child(even) {
+    justify-content: flex-start;
+    .fa-cloud {
+      @include move-off-screen-right;
+    }
+  }
 }
